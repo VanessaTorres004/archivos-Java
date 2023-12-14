@@ -1,0 +1,51 @@
+package udla.vtorres.archivo.ejemplo.servicio;
+
+import java.io.*;
+
+//BufferedWriter//vosas mas grandes & PrintWriter
+public class Archivoservicio{
+    public void crearArchivo(String nombre){
+        File archivo = new File(nombre);
+        try {
+            FileWriter escritor = new FileWriter(archivo, true);
+            BufferedWriter buffer = new BufferedWriter(escritor);
+
+            buffer.append("Hola Mundo ").append(" seran vacaciones pronto ").append(" nos vemos en enero");
+            buffer.close();
+            System.out.println("EL Archivo se ha cerrado exitosamente...");
+        } catch (IOException e) {
+            throw new RuntimeException(e);//captura de errores
+        }
+    }
+    public class Archivoservicio2{
+        public void crearArchivo2(String nombre){
+            File archivo = new File(nombre);
+            try {
+                PrintWriter escritor = new PrintWriter(new FileWriter(archivo, true));
+                BufferedWriter buffer = new BufferedWriter(escritor);
+
+                buffer.append("Hola Mundo ").append(" seran vacaciones pronto ").append(" nos vemos en enero");
+                buffer.close();
+                System.out.println("EL Archivo se ha cerrado exitosamente...");
+            } catch (IOException e) {
+                throw new RuntimeException(e);//captura de errores
+            }
+        }
+    }
+      //leer archivo
+    public String leerArchivo(String nombre){
+        StringBuilder sb = new StringBuilder();
+        File archivo = new File(nombre);
+        try {
+            BufferedReader reader= new BufferedReader(new FileReader(archivo));
+            String Linea ;
+            while ((Linea = reader.readLine()) !=null);{
+                sb.append(Linea);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);//captura de errores
+        }
+        return sb.toString();
+    }
+
+}
