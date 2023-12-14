@@ -1,0 +1,11 @@
+Package udla.vtorres.archivo.ejemplo; 
+
+import udla.vtorres.archivo.ejemplo.servicio.Archivoservicio;
+
+public class EjemploLeerArchivo {
+    public static void main(String[] args) {
+        String nombreArchivo = "D:\\Archivos\\java.txt";
+        Archivoservicio servicio = new Archivoservicio();
+        System.out.println(servicio.leerArchivo(nombreArchivo));
+    }
+}
